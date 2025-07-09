@@ -1,3 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -252,121 +259,423 @@ html {
     color: #fff;
     transform: scale(1.2);
 }
-        #skill-details {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transform: scaleY(0.9);
-            transition: all 0.4s ease;
-        }
-        #skill-details.show {
-            opacity: 1;
-            max-height: 500px;
-            margin-top: 15px;
-            transform: scaleY(1);
-        }
+#skill-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: scaleY(0.9);
+    transition: all 0.4s ease;
+}
+#skill-details.show {
+    opacity: 1;
+    max-height: 500px;
+    margin-top: 15px;
+    transform: scaleY(1);
+}
 
-        .github-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-            gap: 20px;
-        }
-        .github-grid .repo {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .github-grid .repo a {
-            color: #aaccff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .github-grid .repo a:hover {
-            text-decoration: underline;
-        }
-        
-        #repos-container {
-            display: grid;
-            text-align: center;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+.github-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+    gap: 20px;
+}
+.github-grid .repo {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.github-grid .repo a {
+    color: #aaccff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.github-grid .repo a:hover {
+    text-decoration: underline;
+}
 
-        #repos-container .repo {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-        #repos-container .repo:hover {
-            transform: scale(1.04);
-        }
-        #repos-container .repo a {
-            color: #aaccff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        #repos-container .repo a:hover {
-            text-decoration: underline;
-        }
-        #repos-container .repo h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.1em;
-            color: #aaccff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+#repos-container {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
 
-        .contatos-grid {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+#repos-container .repo {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+#repos-container .repo:hover {
+    transform: scale(1.04);
+}
+#repos-container .repo a {
+    color: #aaccff;
+    font-weight: bold;
+    text-decoration: none;
+}
+#repos-container .repo a:hover {
+    text-decoration: underline;
+}
+#repos-container .repo h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #aaccff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        .contato-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #aaccff;
-            text-decoration: none;
-            transition: color 0.2s, transform 0.2s;
-            font-size: 1rem;
-            width: 110px;           /* largura fixa para todos ficarem iguais */
-            min-height: 110px;      /* altura mínima para alinhar */
-            padding: 16px 0 10px 0; /* padding vertical para centralizar melhor */
-            box-sizing: border-box;
-            justify-content: flex-start;
-        }
+.contatos-grid {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
-        .contato-box i {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
-            transition: color 0.2s, transform 0.2s;
-        }
+.contato-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaccff;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+    font-size: 1rem;
+    width: 110px;           /* largura fixa para todos ficarem iguais */
+    min-height: 110px;      /* altura mínima para alinhar */
+    padding: 16px 0 10px 0; /* padding vertical para centralizar melhor */
+    box-sizing: border-box;
+    justify-content: flex-start;
+}
 
-        .contato-box span {
-            font-size: 1rem;
-            margin-top: 2px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-align: center;
-            word-break: break-word;
-        }
+.contato-box i {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    transition: color 0.2s, transform 0.2s;
+}
 
-        .contato-box:hover,
-        .contato-box:focus {
-            color: #fff;
-            transform: scale(1.12);
-        }
+.contato-box span {
+    font-size: 1rem;
+    margin-top: 2px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    word-break: break-word;
+}
 
-        .contato-box:hover i,
-        .contato-box:focus i {
-            color: #fff;
-        }
+.contato-box:hover,
+.contato-box:focus {
+    color: #f2c67e;
+    transform: scale(1.12);
+}
+
+.contato-box:hover i,
+.contato-box:focus i {
+    color: #f2c67e;
+}
+
+.botao-github {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    color: #aaccff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+    }
+.botao-github:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    }
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #aaccff;
+    cursor: pointer;
+    z-index: 200;
+}
+body.light-theme {
+    background: linear-gradient(to top, #5fa7f5, #327bd5);
+    color: #1f1f1f;
+}
+body.light-theme .card,
+body.light-theme .github-grid .repo,
+body.light-theme .skill-box,
+body.light-theme nav.sidebar {
+    background: rgba(203, 203, 203, 0.15) !important;
+    color: #f5f5f5 !important;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+body.light-theme a {
+    color: #004488;
+}
+body.light-theme .theme-toggle {
+    color: #004488;
+    background: rgba(203, 203, 203, 0.15);
+}
+body.light-theme .botao-github{
+    background: rgba(203, 203, 203, 0.15);
+    color: #acd5ff;
+}
+
+body.light-theme .contato-box {
+    color: #acd5ff;
+}
+body.light-theme .contato-box:hover,
+body.light-theme .contato-box:focus {
+    color: #f2c67e;
+}
+
+#sun-background {
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at center, #ffff88 0%, #ffdd55 60%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.light-theme #sun-background {
+    opacity: 0.25;
+    animation: pulseSun 5s infinite ease-in-out;
+}
+
+@keyframes pulseSun {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 60px 10px;
+    padding: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-text h1 {
+    font-size: 1.6em;
+  }
+
+  .header-text p {
+    font-size: 1em;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .contatos-grid {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .github-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav.sidebar {
+    left: 10px;
+    width: 40px;
+    padding: 10px 3px;
+  }
+
+  nav.sidebar ul li a {
+    height: 40px;
+    width: 40px;
+    font-size: 1.2rem;
+  }
+
+  nav.sidebar ul li a::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-text h1 {
+    font-size: 1.3em;
+  }
+
+  .header-text p {
+    font-size: 0.9em;
+  }
+
+  .sidebar {
+    display: none; /* ou substitua por um menu hambúrguer futuramente */
+  }
+}
+@media screen and (max-width: 1120px) {
+  nav.sidebar {
+    position: fixed;
+    top: 45px;
+    left: 10%;
+    transform: translateX(-50%) scaleY(1);
+    width: max-content;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+  }
+
+  nav.sidebar.collapsed {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+    pointer-events: none;
+  }
+
+  nav.sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.sidebar ul li {
+    margin: 0;
+  }
+
+  nav.sidebar ul li a {
+    height: 48px;
+    width: 48px;
+    font-size: 1.3rem;
+    line-height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s;
+  }
+
+  nav.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  nav.sidebar ul li a::after {
+    display: none;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #aaccff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .container {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  nav.sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 12px;
+    gap: 8px;
+    width: 90vw;
+    max-width: 100%;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  nav.sidebar ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    color: #aaccff;
+    z-index: 1100;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  nav.sidebar.collapsed {
+    opacity: 0;
+    transform: translateY(-30px) scaleY(0);
+    pointer-events: none;
+  }
+}
+
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    color: #aaccff;
+    z-index: 1100;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  nav.sidebar.collapsed {
+    display: none;
+  }

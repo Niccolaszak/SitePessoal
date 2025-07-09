@@ -9,7 +9,11 @@
 
 </head>
 <body>
+     <button class="theme-toggle" onclick="toggleTheme()">🌤️</button>
     <canvas id="rain-canvas"></canvas>
+    <div id="sun-background"></div>
+
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
     <nav class="sidebar">
         <ul>
@@ -24,34 +28,45 @@
 
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/120" alt="Foto de Perfil" class="profile-img">
+            <img src="imgs/FotoEu.jpg" alt="Foto de Perfil" class="profile-img">
             <div class="header-text">
-                <h1>Nicolas Uczak</h1>
-                <p>Desenvolvedor Front-end</p>
+                <h1>Nicolas Miguel Uczak</h1>
+                <p>Estudante de Engenharia de Software</p>
             </div>
         </header>
 
         <section id="sobremim">
             <h2>Sobre Mim</h2>
-            <p>Sou um desenvolvedor apaixonado por interfaces modernas e acessíveis...</p>
+                <p>Olá! Me chamo <strong>Nicolas Miguel Uczak</strong>. Tenho experiência prática com tecnologias como <strong>HTML, CSS, JavaScript, Python e C++</strong>, além de conhecimentos em <strong>Git/GitHub</strong>.</p>
+
+                <p>Sou estudante de <strong>Engenharia de Software</strong> e estou sempre buscando evoluir em habilidades técnicas como comunicação, trabalho em equipe e resolução de problemas. Me destaco por ser um ávido aprendiz e possuir um ótimo raciocinio lógico e adaptabilidade.</p>
+
+                <p>Esse site funciona como meu currículo interativo e portfólio. Aqui você encontrará minhas <strong>habilidades técnicas</strong>, <strong>formação</strong>, <strong>experiências</strong> e <strong>links para meus projetos no GitHub</strong>. Fique à vontade para explorar!</p>
         </section>
 
+
         <section id="experiencia">
-            <h2>Experiência</h2>
+            <h2>Experiências</h2>
             <div class="card">
-                <h3>Empresa XYZ</h3>
-                <p><strong>Cargo:</strong> Estagiário Front-end</p>
-                <p><strong>Período:</strong> Jan 2023 - Atual</p>
-                <p>Trabalhei com HTML, CSS e React...</p>
+                <h3>Universal Auditoria e Contabilidade LTDA</h3>
+                <p><strong>Cargo:</strong> Auxiliar Administrativo</p>
+                <p><strong>Período:</strong> FEV 2022 - Atual</p>
+                <p>Trabalho Como um auxiliar geral ajudando na organização de arquivos importantes, serviços gerais e manutenção de computadores e equipamentos. Auxilio também no atendimento ao publico.</p>
+            </div>
+            <div class="card">
+                <h3>Faculdade Campo Real</h3>
+                <p><strong>Curso:</strong> Engenharia de Software</p>
+                <p><strong>Período:</strong> Jan 2024 - Atual</p>
+                <p>Faço trabalhos praticos de progração em geral, montagem e gerenciamento de redes de computadores, modelagem de banco de dados, desenvolvimento Web, etc. Tenho uma noção boa de todos os assuntos vistos na Faculdade. </p>
             </div>
         </section>
 
         <section id="formacao">
             <h2>Formação</h2>
             <div class="card">
-                <h3>Universidade ABC</h3>
-                <p><strong>Curso:</strong> ADS</p>
-                <p><strong>Período:</strong> 2021 - 2024</p>
+                <h3>Faculdade Campo Real</h3>
+                <p><strong>Curso:</strong> Engenharia de Software</p>
+                <p><strong>Período:</strong> 2024 - Atualmente (4°Periodo)</p>
             </div>
         </section>
 
@@ -70,47 +85,40 @@
                     <i class="fab fa-js"></i>
                     <span>JavaScript</span>
                 </div>
-                <div class="skill-box" onclick="showSkillDetails('react')">
-                    <i class="fab fa-react"></i>
-                    <span>React</span>
+                <div class="skill-box" onclick="showSkillDetails('python')">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
                 </div>
                 <div class="skill-box" onclick="showSkillDetails('git')">
                     <i class="fab fa-git-alt"></i>
                     <span>Git</span>
                 </div>
-                <div class="skill-box" onclick="showSkillDetails('figma')">
-                    <i class="fab fa-figma"></i>
-                    <span>Figma</span>
-                </div>
             </div>
             <div id="skill-details" class="card"></div>
         </section>
 
-        <section id="github-projects">
+        <section id="github-projects" style="text-align: center;">
             <h2>Meus Projetos no GitHub</h2>
             <div id="repos-container"></div>
+            <a href="https://github.com/Niccolaszak" target="_blank" class="botao-github">Ver todos os projetos</a>
         </section>
 
         <section id="contato">
             <h2>Contato</h2>
             <div class="contatos-grid">
-                <a href="mailto:seuemail@exemplo.com" target="_blank" class="contato-box">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/Niccolaszak" target="_blank" class="contato-box">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
+                <a href="https://www.linkedin.com/in/nicolas-miguel-uczak-175457335/" target="_blank" class="contato-box">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
                 </a>
                 <a href="https://github.com/Niccolaszak" target="_blank" class="contato-box">
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
                 </a>
-                <a href="https://wa.me/SEUNUMERO" target="_blank" class="contato-box">
+                <a href="https://wa.me/+5542999614798" target="_blank" class="contato-box">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
-                <a href="https://instagram.com/SEUINSTAGRAM" target="_blank" class="contato-box">
+                <a href="https://instagram.com/nicolas_uczak" target="_blank" class="contato-box">
                     <i class="fab fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
@@ -120,37 +128,47 @@
 
     <script src="script.js"></script>
     <script>
+    
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (document.body.classList.contains('light-theme')) {
+            themeToggle.textContent = '🌙';
+        } else {
+            themeToggle.textContent = '🌤️';
+        }
+            const canvas = document.getElementById("rain-canvas");
+            const sun = document.getElementById("sun-background");
+            const isLight = document.body.classList.contains('light-theme');
+            canvas.style.display = isLight ? "none" : "block";
+            sun.style.display = isLight ? "block" : "none";
+    }
+
+    function toggleSidebar() {
+        document.querySelector('nav.sidebar').classList.toggle('collapsed');
+        }
+
     const skillsData = {
         html: {
             title: "HTML",
-            description: "Curso de HTML5 pela Alura.",
-            certificate: "certificados/html.pdf"
+            description: "Curso de HTML5 Realizado pela plataforma do Curso em Video. Contem conteudos do basico ao avançado de HTML.",
         },
         css: {
             title: "CSS",
-            description: "Curso de CSS moderno com Flexbox.",
-            certificate: "certificados/css.pdf"
+            description: "Curso de CSS Realizado pela plataforma do Curso em Video em cunjunto com o de HTML. Comtem conteudos do basico ao avançado de CSS.",
         },
         javascript: {
             title: "JavaScript",
-            description: "Curso completo de JavaScript ES6+.",
-            certificate: "certificados/javascript.pdf"
+            description: "Curso Basico de Javascript realizado pelo curso em video. Contem conteudo basico de java script, porem se desenvolve um pouco mais com o curso de HTML",
         },
-        react: {
-            title: "React",
-            description: "Curso de React com Hooks e Redux.",
-            certificate: "certificados/react.pdf"
+        python: {
+            title: "Python",
+            description: "Curso de Python realizado pelo curso em video. Contem conteudo do basico ao avançado de Python, com mais foco a iniciantes na programação",
         },
         git: {
-            title: "Git",
-            description: "Versionamento com Git e GitHub.",
-            certificate: "certificados/git.pdf"
-        },
-        figma: {
-            title: "Figma",
-            description: "Design de interfaces com Figma.",
-            certificate: "certificados/figma.pdf"
-        },
+            title: "Git e GitHub",
+            description: "Curso de versionamento utilizando Git e GitHub realizado pelo curso em video, focado em explicar como realizar e o funcionamento do versionamento.",
+        }
     };
 
     let currentSkill = null;
@@ -170,7 +188,6 @@
             box.innerHTML = `
                 <h3>${data.title}</h3>
                 <p>${data.description}</p>
-                <a href="${data.certificate}" target="_blank">Ver Certificado</a>
             `;
             box.classList.add('show');
             currentSkill = skill;
