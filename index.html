@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <canvas id="rain-canvas"></canvas>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#sobremim" id="Sobre"><i class="fas fa-user"></i></a></li>
+            <li><a href="#experiencia" id="Experiência"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#formacao" id="Formação"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#habilidades" id="Habilidades"><i class="fas fa-tools"></i></a></li>
+            <li><a href="#github-projects" title="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="#contato" id="Contato"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/120" alt="Foto de Perfil" class="profile-img">
+            <div class="header-text">
+                <h1>Nicolas Uczak</h1>
+                <p>Desenvolvedor Front-end</p>
+            </div>
+        </header>
+
+        <section id="sobremim">
+            <h2>Sobre Mim</h2>
+            <p>Sou um desenvolvedor apaixonado por interfaces modernas e acessíveis...</p>
+        </section>
+
+        <section id="experiencia">
+            <h2>Experiência</h2>
+            <div class="card">
+                <h3>Empresa XYZ</h3>
+                <p><strong>Cargo:</strong> Estagiário Front-end</p>
+                <p><strong>Período:</strong> Jan 2023 - Atual</p>
+                <p>Trabalhei com HTML, CSS e React...</p>
+            </div>
+        </section>
+
+        <section id="formacao">
+            <h2>Formação</h2>
+            <div class="card">
+                <h3>Universidade ABC</h3>
+                <p><strong>Curso:</strong> ADS</p>
+                <p><strong>Período:</strong> 2021 - 2024</p>
+            </div>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-box" onclick="showSkillDetails('html')">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML</span>
+                </div>
+                <div class="skill-box" onclick="showSkillDetails('css')">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS</span>
+                </div>
+                <div class="skill-box" onclick="showSkillDetails('javascript')">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-box" onclick="showSkillDetails('react')">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="skill-box" onclick="showSkillDetails('git')">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+                <div class="skill-box" onclick="showSkillDetails('figma')">
+                    <i class="fab fa-figma"></i>
+                    <span>Figma</span>
+                </div>
+            </div>
+            <div id="skill-details" class="card"></div>
+        </section>
+
+        <section id="github-projects">
+            <h2>Meus Projetos no GitHub</h2>
+            <div id="repos-container"></div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <div class="contatos-grid">
+                <a href="mailto:seuemail@exemplo.com" target="_blank" class="contato-box">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/Niccolaszak" target="_blank" class="contato-box">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Niccolaszak" target="_blank" class="contato-box">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://wa.me/SEUNUMERO" target="_blank" class="contato-box">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://instagram.com/SEUINSTAGRAM" target="_blank" class="contato-box">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    const skillsData = {
+        html: {
+            title: "HTML",
+            description: "Curso de HTML5 pela Alura.",
+            certificate: "certificados/html.pdf"
+        },
+        css: {
+            title: "CSS",
+            description: "Curso de CSS moderno com Flexbox.",
+            certificate: "certificados/css.pdf"
+        },
+        javascript: {
+            title: "JavaScript",
+            description: "Curso completo de JavaScript ES6+.",
+            certificate: "certificados/javascript.pdf"
+        },
+        react: {
+            title: "React",
+            description: "Curso de React com Hooks e Redux.",
+            certificate: "certificados/react.pdf"
+        },
+        git: {
+            title: "Git",
+            description: "Versionamento com Git e GitHub.",
+            certificate: "certificados/git.pdf"
+        },
+        figma: {
+            title: "Figma",
+            description: "Design de interfaces com Figma.",
+            certificate: "certificados/figma.pdf"
+        },
+    };
+
+    let currentSkill = null;
+
+    function showSkillDetails(skill) {
+        const box = document.getElementById('skill-details');
+
+        if (currentSkill === skill) {
+            box.classList.remove('show');
+            currentSkill = null;
+            return;
+        }
+
+        const data = skillsData[skill];
+        box.classList.remove('show');
+        setTimeout(() => {
+            box.innerHTML = `
+                <h3>${data.title}</h3>
+                <p>${data.description}</p>
+                <a href="${data.certificate}" target="_blank">Ver Certificado</a>
+            `;
+            box.classList.add('show');
+            currentSkill = skill;
+        }, 300);
+    }
+
+    // GitHub API - carregar repositórios
+    fetch("https://api.github.com/users/Niccolaszak/repos?sort=updated")
+        .then(res => res.json())
+        .then(repos => {
+            const container = document.getElementById("repos-container");
+            const topRepos = repos.slice(0, 3);
+
+            topRepos.forEach(repo => {
+                const div = document.createElement("div");
+                div.classList.add("repo");
+
+                div.innerHTML = `
+        <a href="${repo.html_url}" target="_blank" style="display:block; height:100%; color:inherit; text-decoration:none;">
+            <h3>${repo.name}</h3>
+            <p>${repo.description || "Sem descrição"}</p>
+            <small>Linguagem: ${repo.language || "N/A"}</small>
+        </a>
+    `;
+
+                container.appendChild(div);
+            });
+        })
+        .catch(error => {
+            document.getElementById("repos-container").innerText = "Erro ao carregar projetos.";
+            console.error("Erro ao buscar repositórios:", error);
+        });
+    </script>
+</body>
+</html>
