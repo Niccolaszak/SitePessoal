@@ -9,11 +9,10 @@
 
 </head>
 <body>
+    <div id="background-light"></div>
      <button class="theme-toggle" onclick="toggleTheme()">🌤️</button>
     <canvas id="rain-canvas"></canvas>
     <div id="sun-background"></div>
-
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
     <nav class="sidebar">
         <ul>
@@ -27,7 +26,7 @@
     </nav>
 
     <div class="container">
-        <header>
+        <header id="sobremim">
             <img src="imgs/FotoEu.jpg" alt="Foto de Perfil" class="profile-img">
             <div class="header-text">
                 <h1>Nicolas Miguel Uczak</h1>
@@ -35,7 +34,7 @@
             </div>
         </header>
 
-        <section id="sobremim">
+        <section >
             <h2>Sobre Mim</h2>
                 <p>Olá! Me chamo <strong>Nicolas Miguel Uczak</strong>. Tenho experiência prática com tecnologias como <strong>HTML, CSS, JavaScript, Python e C++</strong>, além de conhecimentos em <strong>Git/GitHub</strong>.</p>
 
@@ -128,20 +127,43 @@
 
     <script src="script.js"></script>
     <script>
-    
     function toggleTheme() {
         document.body.classList.toggle('light-theme');
         const themeToggle = document.querySelector('.theme-toggle');
-        if (document.body.classList.contains('light-theme')) {
+        const canvas = document.getElementById("rain-canvas");
+        const sun = document.getElementById("sun-background");
+        const isLight = document.body.classList.contains('light-theme');
+
+        if (isLight) {
             themeToggle.textContent = '🌙';
+            canvas.classList.remove('rain-fadein');
+            canvas.classList.add('rain-fadeout');
+            // Só para a chuva depois do fade out terminar
+            setTimeout(() => {
+                window.stopRain();
+                canvas.style.display = "none";
+                sun.style.display = "block";
+                sun.style.animation = "sunRise 2s cubic-bezier(.42,0,.58,1) forwards";
+                setTimeout(() => {
+                    sun.style.animation = "pulseSun 5s infinite ease-in-out";
+                }, 2000);
+            }, 1500); // tempo igual ao rain-fadeout
         } else {
             themeToggle.textContent = '🌤️';
+            sun.style.animation = "sunFadeOut 1.5s ease forwards";
+            let thunder = document.createElement('div');
+            thunder.className = 'thunder-effect';
+            document.body.appendChild(thunder);
+            setTimeout(() => {
+                thunder.remove();
+                sun.style.display = "none";
+                sun.style.animation = "";
+                canvas.style.display = "block";
+                canvas.classList.remove('rain-fadeout');
+                canvas.classList.add('rain-fadein');
+                window.startRain();
+            }, 1400);
         }
-            const canvas = document.getElementById("rain-canvas");
-            const sun = document.getElementById("sun-background");
-            const isLight = document.body.classList.contains('light-theme');
-            canvas.style.display = isLight ? "none" : "block";
-            sun.style.display = isLight ? "block" : "none";
     }
 
     function toggleSidebar() {

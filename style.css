@@ -2,13 +2,11 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    transition: background 0.5s ease, color 0.5s ease;
-}
-
-body {
     min-height: 100vh;
     margin: 0;
     background: linear-gradient(-135deg, #0f2e4e, #1c3f6d);
+    transition: background 4s cubic-bezier(.42,0,.58,1), color 2s cubic-bezier(.42,0,.58,1);
+    position: relative;
 }
 
 .container {
@@ -71,20 +69,7 @@ section h2 {
     padding: 15px;
     border-radius: 10px;
     margin-top: 10px;
-}
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-}
-
-.skills li {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px 12px;
-    border-radius: 8px;
+    transition: background 4s ease, color 4s ease;
 }
 
 html {
@@ -407,8 +392,8 @@ html {
     z-index: 200;
 }
 body.light-theme {
-    background: linear-gradient(to top, #5fa7f5, #327bd5);
     color: #1f1f1f;
+    transition: background 4s cubic-bezier(.42,0,.58,1), color 2s cubic-bezier(.42,0,.58,1);
 }
 body.light-theme .card,
 body.light-theme .github-grid .repo,
@@ -417,6 +402,7 @@ body.light-theme nav.sidebar {
     background: rgba(203, 203, 203, 0.15) !important;
     color: #f5f5f5 !important;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background 4s ease, color 4s ease;
 }
 body.light-theme a {
     color: #004488;
@@ -439,6 +425,7 @@ body.light-theme .contato-box:focus {
 }
 
 #sun-background {
+    display: none;
     position: fixed;
     top: -100px;
     right: -100px;
@@ -462,11 +449,75 @@ body.light-theme #sun-background {
     50% { transform: scale(1.1); }
 }
 
+@keyframes sunRise {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+    60% {
+        top: 20px;
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0.25;
+    }
+}
+
+@keyframes sunFadeOut {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes thunderFlash {
+    0% {
+        background: rgba(255,255,255,0.0);
+    }
+    10% {
+        background: rgba(255,255,255,0.8);
+    }
+    20% {
+        background: rgba(255,255,255,0.0);
+    }
+    100% {
+        background: rgba(255,255,255,0.0);
+    }
+}
+
+.thunder-effect {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    animation: thunderFlash 0.7s linear 2; /* duração maior e repete 2x */
+}
+
+/* Animação para sumir a chuva */
+.rain-fadeout {
+    animation: rainFadeOut 1.5s forwards;
+}
+
+.rain-fadein {
+    animation: rainFadeIn 1.5s forwards;
+}
+
+@keyframes rainFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes rainFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @media screen and (max-width: 768px) {
-  .container {
-    margin: 60px 10px;
-    padding: 15px;
-  }
+
 
   header {
     flex-direction: column;
@@ -517,19 +568,6 @@ body.light-theme #sun-background {
   }
 }
 
-@media screen and (max-width: 480px) {
-  .header-text h1 {
-    font-size: 1.3em;
-  }
-
-  .header-text p {
-    font-size: 0.9em;
-  }
-
-  .sidebar {
-    display: none; /* ou substitua por um menu hambúrguer futuramente */
-  }
-}
 @media screen and (max-width: 1120px) {
   nav.sidebar {
     position: fixed;
@@ -549,11 +587,6 @@ body.light-theme #sun-background {
     opacity: 1;
   }
 
-  nav.sidebar.collapsed {
-    opacity: 0;
-    transform: translateX(-50%) scaleY(0);
-    pointer-events: none;
-  }
 
   nav.sidebar ul {
     display: flex;
@@ -583,6 +616,7 @@ body.light-theme #sun-background {
     transition: background 0.3s;
   }
 
+
   nav.sidebar ul li a:hover {
     background: rgba(255, 255, 255, 0.15);
   }
@@ -610,72 +644,35 @@ body.light-theme #sun-background {
     background: rgba(255, 255, 255, 0.15);
   }
 
-  .sidebar-toggle {
-    display: none;
-  }
 
-  .container {
-    margin-top: 100px;
-  }
 }
 
-@media screen and (max-width: 490px) {
-  nav.sidebar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 8px 12px;
-    gap: 8px;
-    width: 90vw;
-    max-width: 100%;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
+@media screen and (max-width: 515px) {
+    nav.sidebar {
+        display: none !important;
+    }
+}
 
-  nav.sidebar ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
+@media screen and (max-width: 1000px) {
+    .container {
+        margin: 100 10px;
+    }
+}
 
-  .sidebar-toggle {
-    display: block;
+#background-light {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    color: #aaccff;
-    z-index: 1100;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-  nav.sidebar.collapsed {
-    opacity: 0;
-    transform: translateY(-30px) scaleY(0);
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     pointer-events: none;
-  }
+    opacity: 0;
+    transition: opacity 4s cubic-bezier(.42,0,.58,1);
+    background: linear-gradient(to top, #5fa7f5, #327bd5);
 }
 
+body.light-theme #background-light {
+    opacity: 1;
+    transition: opacity 4s cubic-bezier(.42,0,.58,1);
+}
 
-  .sidebar-toggle {
-    display: block;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    color: #aaccff;
-    z-index: 1100;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-  nav.sidebar.collapsed {
-    display: none;
-  }

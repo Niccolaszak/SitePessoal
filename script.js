@@ -21,13 +21,26 @@ for (let i = 0; i < numDrops; i++) {
         x: Math.random() * (width + 100),
         y: Math.random() * height,
         length: 10 + Math.random() * 20,
-        speed: 2 + Math.random() * 2, // velocidade menor
+        speed: 1, // velocidade menor
         opacity: 0.5 + Math.random() * 0.4,
-        drift: - Math.random() * 2 // drift negativo para inverter o lado
+        drift: - Math.random() * 0.5 // drift negativo para inverter o lado
     });
 }
 
+let rainInterval;
+let raining = true;
+
+window.startRain = function() {
+    raining = true;
+    drawRain();
+};
+
+window.stopRain = function() {
+    raining = false;
+};
+
 function drawRain() {
+    if (!raining) return;
     ctx.clearRect(0, 0, width, height);
     for (let drop of raindrops) {
         ctx.beginPath();
@@ -48,7 +61,8 @@ function drawRain() {
     requestAnimationFrame(drawRain);
 }
 
-drawRain();
+// Inicie a chuva ao carregar
+window.startRain();
 
 // Deixe o canvas fixo e atrás de todo o conteúdo
 canvas.style.position = 'fixed';
