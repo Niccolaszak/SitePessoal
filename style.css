@@ -676,3 +676,14 @@ body.light-theme #background-light {
     transition: opacity 4s cubic-bezier(.42,0,.58,1);
 }
 
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 18px 0;
+    background: rgba(0, 0, 0, 0.18);
+    color: #aaccff;
+    font-size: 1rem;
+    border-radius: 0 0 12px 12px;
+    margin-top: 30px;
+}
+
